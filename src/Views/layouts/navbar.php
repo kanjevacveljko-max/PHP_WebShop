@@ -20,7 +20,7 @@
                 <a class="nav-link" href="src/Views/Users/login.php">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="public/register.php">Register</a>
+                <a class="nav-link" href="src/Views/Users/register.php">Register</a>
             </li>
         </ul>
     </div>

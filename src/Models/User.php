@@ -24,11 +24,17 @@ class User extends Db {
         return $stmt->fetch();
     }
 
-    public function createUser(string $username, string $password): void
+    public function createUser(string $username, string $fullName, string $email, string $password, string $address, string $phone): void
     {
-        $stmt = $this->connection->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+        $stmt = $this->connection->prepare("INSERT INTO users (username, full_name, password, email, address, phone) 
+                                                  VALUES (:username, :fullname, :password, :email, :address, :phone)");
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":address", $address);
+        $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":fullname", $fullName);
+
         $stmt->execute();
     }
 }

@@ -31,4 +31,4 @@
     </div>
 </div>
 
-<?php include __DIR__ . '/app/views/layouts/footer.php'; ?>
+<?php include __DIR__.'/../layouts/footer.php'; ?>
