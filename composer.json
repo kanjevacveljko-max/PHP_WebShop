@@ -1,0 +1,15 @@
+{
+    "name": "pc/webshop",
+    "autoload": {
+        "psr-4": {
+            "Pc\\Webshop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Veljko",
+            "email": "kanjevacveljko@gmail.com"
+        }
+    ],
+    "require": {}
+}
