@@ -2,7 +2,7 @@
     "name": "pc/webshop",
     "autoload": {
         "psr-4": {
-            "Pc\\Webshop\\": "src/"
+            "webshop\\": "src/"
         }
     },
     "authors": [
