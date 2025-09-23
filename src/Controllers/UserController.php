@@ -2,9 +2,11 @@
 
 namespace webshop\Controllers;
 require_once "vendor/autoload.php";
-use webshop\Models\User;
 
-class UserController{
+use webshop\Models\User;
+use webshop\Services\SessionService;
+
+class UserController extends SessionService {
 
     public function login(array $data)
     {
