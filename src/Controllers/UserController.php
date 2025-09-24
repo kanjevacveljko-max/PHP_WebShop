@@ -35,7 +35,7 @@ class UserController extends SessionService {
         if ($user['role'] === 'admin') {
             header("Location: src/views/admin/dashboard.php");
         } else {
-            header("Location: src/views/users/profile.php");
+            header("Location: src/views/home.php");
         }
     }
 
