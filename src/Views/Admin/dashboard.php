@@ -152,7 +152,7 @@ include __DIR__ . '/../layouts/header.php';
 
                     <div class="col-md-6">
                         <label class="form-label">Slika</label>
-                        <input type="file" class="form-control" name="image" >
+                        <input type="file" class="form-control" name="images[]" multiple >
                     </div>
 
                     <div class="col-12">

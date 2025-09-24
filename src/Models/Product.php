@@ -21,19 +21,24 @@ class Product extends Db {
         return $stmt->rowCount() > 0 ? true : false;
     }
 
-    public function createProduct(int $categoryId, string $name, string $description, string $brand, int $price, int $stock, string $image)
+    public function createProduct(int $categoryId, string $name, string $description, string $brand, int $price, int $stock)
     {
-        $stmt = $this->connection->prepare("insert into `products` (category_id, name, description, brand, price, stock, image)
-                                                  values (:category_id, :name, :description, :brand, :price, :stock, :image)");
+        $stmt = $this->connection->prepare("insert into `products` (category_id, name, description, brand, price, stock)
+                                                  values (:category_id, :name, :description, :brand, :price, :stock)");
         $stmt->bindParam(':category_id', $categoryId);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':brand', $brand);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':stock', $stock);
-        $stmt->bindParam(':image', $image);
 
         $stmt->execute();
+    }
 
+    public function getIdByName($name)
+    {
+        $stmt = $this->connection->prepare("SELECT id FROM products WHERE name = :name");
+        $stmt->bindParam(':name', $name);
+        return $stmt->execute();
     }
 }

@@ -2,19 +2,13 @@
 
 namespace webshop\Services;
 
-class UploadService
+class ImageService
 {
-
     const ALLOWED_EXSTENSIONS = ["jpg", "jpeg", "png", "gif"];
     const MAX_FILE_SIZE = 0.05 * 1024 * 1024;
     const MAX_IMAGE_WIDTH = 1920;
     const MAX_IMAGE_HEIGHT = 1024;
 
-    public function upload(string $image, string $finalName, string $destination): void
-    {
-        $finalDestination = $destination."/".$finalName;
-        move_uploaded_file($image, $finalDestination);
-    }
 
     public function isValidProportions(int $width, int $height): bool
     {
