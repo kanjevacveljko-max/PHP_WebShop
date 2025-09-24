@@ -5,6 +5,7 @@ namespace webshop\Controllers;
 require_once "vendor/autoload.php";
 
 use webshop\Models\Image;
+use webshop\Models\Product;
 use webshop\Services\ImageService;
 use webshop\Services\SessionService;
 
@@ -12,8 +13,6 @@ class ImageController extends SessionService {
     public function uploadProductImages(array $files, int $productId)
     {
         $imageService = new ImageService();
-        $imageModel = new Image();
-        $savedPaths = [];
 
         foreach ($files['name'] as $key => $file) {
             $name = $files['name'][$key];
@@ -48,6 +47,8 @@ class ImageController extends SessionService {
             }
 
             $dbPath = "uploads/" . $newName;
+
+            $imageModel = new Image();
             $imageModel->uploadIntoDatabase($productId, $dbPath);
         }
     }

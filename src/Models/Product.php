@@ -21,7 +21,7 @@ class Product extends Db {
         return $stmt->rowCount() > 0 ? true : false;
     }
 
-    public function createProduct(int $categoryId, string $name, string $description, string $brand, int $price, int $stock)
+    public function createProduct(int $categoryId, string $name, string $description, string $brand, int $price, int $stock): int
     {
         $stmt = $this->connection->prepare("insert into `products` (category_id, name, description, brand, price, stock)
                                                   values (:category_id, :name, :description, :brand, :price, :stock)");
@@ -33,12 +33,9 @@ class Product extends Db {
         $stmt->bindParam(':stock', $stock);
 
         $stmt->execute();
+
+        return $this->connection->lastInsertId();
     }
 
-    public function getIdByName($name)
-    {
-        $stmt = $this->connection->prepare("SELECT id FROM products WHERE name = :name");
-        $stmt->bindParam(':name', $name);
-        return $stmt->execute();
-    }
+
 }

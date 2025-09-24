@@ -20,8 +20,7 @@ switch ($action) {
         break;
 
     case 'newProduct':
-        (new ProductController())->addNewProduct($_POST);
-        $productId = (new Product())->getIdByName($_POST['name']);
+        $productId = (new ProductController())->addNewProduct($_POST);
         (new ImageController())->uploadProductImages($_FILES["images"], $productId);
         break;
 

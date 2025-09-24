@@ -27,7 +27,7 @@ class ProductController extends SessionService {
         $stock = $data['stock'];
 
         $productModel = new Product();
-        $productModel->createProduct($categoryId, $name, $description, $brand, $price, $stock);
+        return $productModel->createProduct($categoryId, $name, $description, $brand, $price, $stock);
     }
 
 
