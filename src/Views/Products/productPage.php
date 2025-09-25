@@ -57,7 +57,7 @@
 
                         <?php else: ?>
 
-                            <a href="?action=loginForm&id=<?= $product['id'] ?>" class="btn btn-primary btn-lg">
+                            <a href="index.php?action=loginForm&id=<?= $product['id'] ?>" class="btn btn-primary btn-lg">
                                 Ulogujte se da biste nastavili
                             </a>
 
