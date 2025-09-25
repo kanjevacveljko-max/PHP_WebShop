@@ -6,10 +6,13 @@ class Category extends Db{
 
     public function getCategoryNameById(int $id)
     {
-        $stmt = $this->connection->prepare("SELECT * FROM `categories` WHERE `id` = :id");
+        $stmt = $this->connection->prepare("SELECT * FROM categories WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
-        return $stmt->fetch()['name'];
+        $category = $stmt->fetch();
+        if ($category) {
+            return $category["name"];
+        }
     }
 }

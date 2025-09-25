@@ -30,13 +30,37 @@ class UserController extends SessionService {
 
         $this->setSession("user_id", $user["id"])
              ->setSession("logged_in", true)
-             ->setSession("role", $user["role"]);
+             ->setSession("role", $user["role"])
+             ->setSession("fullName", $user["full_name"]);
 
-        if ($user['role'] === 'admin') {
-            header("Location: src/views/admin/dashboard.php");
-        } else {
-            header("Location: src/views/home.php");
+        if($this->getFromSession("zapocetaKupovina") === true) {
+            header("Location: index.php?action=productPage&id=".$this->getFromSession("productId"));
+            exit;
         }
+        else{
+            if ($user['role'] == 'admin') {
+                header("Location: src/Views/Admin/dashboard.php");
+            } else {
+                header("Location: index.php");
+            }
+        }
+
+
+        if($this->getFromSession("zapocetaKupovina") === true) {
+            header("Location: index.php?action=product&id=".$this->getFromSession("productId"));
+        }
+    }
+
+
+    public function logout()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        session_destroy();
+
+        header("Location: index.php");
     }
 
     public function register(array $data)

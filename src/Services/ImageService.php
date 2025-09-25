@@ -4,7 +4,7 @@ namespace webshop\Services;
 
 class ImageService
 {
-    const ALLOWED_EXSTENSIONS = ["jpg", "jpeg", "png", "gif"];
+    const ALLOWED_EXSTENSIONS = ["jpg", "jfif", "jpeg", "png", "gif"];
     const MAX_FILE_SIZE = 0.05 * 1024 * 1024;
     const MAX_IMAGE_WIDTH = 1920;
     const MAX_IMAGE_HEIGHT = 1024;
