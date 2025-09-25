@@ -66,9 +66,10 @@ switch ($action) {
     case 'productPage':
         $productController = new ProductController();
         $productController->showProduct($_GET["id"]);
+        break;
 
     case 'addToCart':
-        $productId = (int)$_GET['id'];
+        $productId = $_GET['id'];
         $cartController = new CartController();
         $cartController->add($productId);
         break;
@@ -82,6 +83,12 @@ switch ($action) {
     case 'cart':
         $cartController = new CartController();
         $cartController->show();
+        break;
+
+    case 'search':
+        $query = $_GET['q'] ?? '';
+        $productController = new ProductController();
+        $productController->search($query);
         break;
 
     case 'confirmOrder':

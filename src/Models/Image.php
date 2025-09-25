@@ -33,7 +33,6 @@ class Image extends Db {
         $imagePath = $stmt->fetch();
 
         if ($imagePath && !empty($imagePath['image_path'])) {
-
             return $imagePath['image_path'];
         }
     }

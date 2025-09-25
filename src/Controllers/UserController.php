@@ -44,11 +44,6 @@ class UserController extends SessionService {
                 header("Location: index.php");
             }
         }
-
-
-        if($this->getFromSession("zapocetaKupovina") === true) {
-            header("Location: index.php?action=product&id=".$this->getFromSession("productId"));
-        }
     }
 
 

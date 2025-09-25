@@ -10,7 +10,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <a class="navbar-brand fw-bold" href="index.php">💻 WebShop</a>
 
         <form class="d-none d-lg-flex position-absolute top-50 start-50 translate-middle"
-              role="search" action="/public/search.php" method="get" style="width: 300px; transform: translate(-50%, -50%);">
+              role="search" action="/webshop/index.php" method="get" style="width: 300px; transform: translate(-50%, -50%);">
+            <input type="hidden" name="action" value="search">
             <input class="form-control me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>
         </form>

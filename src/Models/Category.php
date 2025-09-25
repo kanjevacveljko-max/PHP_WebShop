@@ -11,8 +11,9 @@ class Category extends Db{
         $stmt->execute();
 
         $category = $stmt->fetch();
-        if ($category) {
+        if ($category &&!empty($category["name"])) {
             return $category["name"];
         }
     }
+
 }

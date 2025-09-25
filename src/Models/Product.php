@@ -6,6 +6,20 @@ use PDO;
 
 class Product extends Db {
 
+    public function searchProducts($query)
+    {
+        $stmt = $this->connection->prepare("SELECT p.*
+                                                  FROM products p
+                                                  JOIN categories c ON p.category_id = c.id
+                                                  WHERE p.name LIKE :term 
+                                                  OR p.description LIKE :term
+                                                  OR c.name LIKE :term");
+
+        $stmt->execute(['term' => "%$query%"]);
+
+        return $stmt->fetchAll();
+    }
+
     public function getAllProducts()
     {
         $stmt = $this->connection->prepare("SELECT * FROM products");
@@ -20,7 +34,11 @@ class Product extends Db {
         $stmt->bindParam(":id", $productId);
         $stmt->execute();
 
-        return $stmt->fetch();
+        $product = $stmt->fetch();
+
+        if ($product) {
+            return $product;
+        }
     }
 
     public function productExists(int $id): bool

@@ -61,24 +61,4 @@ class CartController{
         exit;
     }
 
-    public function confirmOrder()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $cart = $_SESSION['cart'] ?? [];
-
-        if (empty($cart)) {
-            $_SESSION['errors'][] = "Korpa je prazna. Ne možete potvrditi porudžbinu.";
-            header("Location: index.php?page=cart");
-            exit;
-        }
-
-        unset($_SESSION['cart']);
-        $_SESSION['success'][] = "Vaša porudžbina je uspešno potvrđena!";
-
-        header("Location: index.php?action=cart");
-        exit;
-    }
 }

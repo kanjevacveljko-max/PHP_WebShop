@@ -30,4 +30,13 @@ class ProductController {
         include __DIR__ . '/../views/products/productPage.php';
     }
 
+    public function search($query)
+    {
+        $imageModel = new Image();
+        $productModel = new Product();
+        $products = $productModel->searchProducts($query);
+
+        include "src/Views/products/searchResults.php";
+    }
+
 }
