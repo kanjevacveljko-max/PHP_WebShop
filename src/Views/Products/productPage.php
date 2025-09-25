@@ -13,7 +13,6 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
 
-                    <!-- Velika slika proizvoda -->
                     <div class="mb-4 text-center">
                         <img src="<?= htmlspecialchars($image) ?>"
                              alt="<?= htmlspecialchars($product['name']) ?>"
@@ -58,7 +57,7 @@
 
                         <?php else: ?>
 
-                            <a href="index.php?action=loginForm&id=<?= $product['id'] ?>" class="btn btn-primary btn-lg">
+                            <a href="?action=loginForm&id=<?= $product['id'] ?>" class="btn btn-primary btn-lg">
                                 Ulogujte se da biste nastavili
                             </a>
 
